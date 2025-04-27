@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Real Estate Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('static/background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        .card-custom {
+            max-width: 50%;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Real Estate Details</h1>
+    <div th:if="${realEstate.isPresent()}" class="card card-custom">
+        <img th:src="@{'/images/' + ${realEstate.get().picture}}" class="card-img-top" alt="Picture">
+        <div class="card-body text-center">
+            <h5 class="card-title" th:text="${realEstate.get().location}">Location</h5>
+            <p class="card-text">Surface Area: <span th:text="${realEstate.get().surfaceArea}"></span> sq.m</p>
+            <p class="card-text">Price: <span th:text="${realEstate.get().price}"></span> USD</p>
+            <p class="card-text">Type of Real Estate: <span th:text="${realEstate.get().typeRealEstate.label}"></span></p>
+            <p class="card-text">Type of Sale: <span th:text="${realEstate.get().typeSales.label}"></span></p>
+            <a th:if="${user.role.toString() !='USER'}" th:href="@{/realEstates/delete/{id}(id=${realEstate.get().id})}" class="btn btn-danger">Delete</a>
+            <a th:if="${user.role.toString() !='USER'}" th:href="@{/realEstates/edit/{id}(id=${realEstate.get().id})}" class="btn btn-warning">Edit</a>
+            <a href="/" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

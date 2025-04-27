@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+
+    <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+
+<h2> Report</h2>
+<a href="/GlobalTour/realEstates">Get Back</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Sales</th>
+        <th>Rent</th>
+        <th>Total</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+        <td  th:text="${sale} + '$'"> </td>
+        <td  th:text="${rent} + '$'"> </td>
+        <td  th:text="${total} + '$'"> </td>
+
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

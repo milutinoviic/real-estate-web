@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('slika1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        .form-holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .form {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 30%;
+        }
+        .form-floating label {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        .login-input {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 1.5rem;
+            height: 60px;
+        }
+        .login-input:focus {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        .submit-button {
+            width: 100%;
+            font-size: 1.8rem;
+            padding: 10px;
+            font-weight: bold;
+        }
+        p {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="form-holder">
+    <form class="form text-white" action="login" method="post">
+        <div class="form-floating mb-4">
+            <input class="form-control text-dark login-input" placeholder="Email"
+                   type="text" name="email" id="email" />
+            <label for="email">Email:</label>
+        </div>
+        <div class="form-floating mb-4">
+            <input class="form-control text-dark login-input" placeholder="Password"
+                   type="password" name="password" id="password" />
+            <label for="password">Password:</label>
+        </div>
+        <div class="input-holders mb-4">
+            <button class="submit-button btn btn-primary" type="submit">Login</button>
+        </div>
+        <p th:text="${error}"></p>
+        <a href="/GlobalTour/register">Don't have an account? Register here</a>
+    </form>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

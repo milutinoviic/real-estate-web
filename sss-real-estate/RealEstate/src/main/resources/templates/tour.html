@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tour</title>
+</head>
+<body>
+<p th:text="${error}"></p>
+
+    <div>
+        <h1 class="mb-4 text-center">Book Tour</h1>
+        <div th:if="${realEstate.isPresent()}" class="card card-custom">
+            <img th:src="@{${realEstate.get().picture}}" class="card-img-top" alt="Picture">
+            <div class="card-body text-center">
+                <h5 class="card-title" th:text="${realEstate.get().location}">Location</h5>
+                <p class="card-text">Surface Area: <span th:text="${realEstate.get().surfaceArea}"></span> sq.m</p>
+                <p class="card-text">Price: <span th:text="${realEstate.get().price}"></span> USD</p>
+                <p class="card-text">Type of Real Estate: <span th:text="${realEstate.get().typeRealEstate.label}"></span></p>
+                <p class="card-text">Type of Sale: <span th:text="${realEstate.get().typeSales.label}"></span></p>
+
+
+            </div>
+
+
+        <form th:action="@{/realEstates/toure/{id}(id=${realEstate.get().id})}" method="post">
+            <label for="datetime">Choose date and time:</label>
+            <input type="datetime-local" id="datetime" name="datetime">
+            <button class="btn btn-warning" type="submit">Submit</button>
+
+
+        </form>
+    </div>
+    </div>
+
+</body>
+</html>

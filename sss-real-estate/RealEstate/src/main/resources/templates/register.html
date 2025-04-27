@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Registration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('slika1.jpg'); /* Pozadinska slika */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+    .form-holder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .form {
+      background-color: rgba(0, 0, 0, 0.75); /* Tamna pozadina forme sa providnošću */
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Blaga senka za formu */
+      width: 100%;
+      max-width: 500px;
+    }
+    .form-floating label {
+      color: #fff;
+    }
+    .registration-input {
+      background-color: rgba(255, 255, 255, 0.8); /* Svetlija polja sa blagom providnošću */
+      border: none;
+    }
+    .registration-input:focus {
+      background-color: rgba(255, 255, 255, 1); /* Potpuno belija kad je polje aktivno */
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Fokus na polju */
+    }
+    .submit-buttons {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    p {
+      text-align: center;
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-holder">
+  <form class="form text-white" action="register" method="post">
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input"
+             placeholder="First name" type="text" name="name" id="name" />
+      <label for="name">First name:</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input"
+             placeholder="Last name" type="text" name="last" id="last" />
+      <label for="last">Last name:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input" placeholder="Email"
+             type="email" name="email" id="email" />
+      <label for="email">Email:</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input"
+             placeholder="Password" type="password" name="password" id="password" />
+      <label for="password">Password:</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input"
+             placeholder="Address" type="text" name="address" id="address" />
+      <label for="address">Address:</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input class="form-control text-dark registration-input"
+             placeholder="Phone number" type="text" name="phone" id="phone" />
+      <label for="phone">Phone number:</label>
+    </div>
+    <div class="input-holders d-flex justify-content-between">
+      <a th:href="@{/login}" class="btn btn-outline-light submit-buttons me-2" style="width: 48%">Login</a>
+      <button class="btn btn-warning submit-buttons ms-2" style="width: 48%" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<p th:text="${error}"></p>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

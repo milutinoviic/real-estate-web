@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Agents and Real Estates</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<h2> Popular RealEstates</h2>
+<a href="/GlobalTour/realEstates">Get Back</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Real Estates</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="re : ${realEstates}">
+        <td  th:text="${re.location}">Location Name</td>
+        <td  th:text="${re.price}">Price </td>
+        <td  th:text="${re.agent.name}">Agent Name</td>
+        <td  th:text="${re.agency.name}">Agency </td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Agents</th>
+    </tr>
+    </thead>
+    <tbody th:each="ag : ${agents}" >
+    <tr th:if="${ag.role.toString()=='AGENT'}">
+        <td  th:text="${ag.name}">Name</td>
+        <td  th:text="${ag.last}">Last Name </td>
+        <td  th:text="${ag.email}">Agent Email</td>
+        <td  th:text="${ag.password}">Password </td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+<h3 th:text="${lse}" ></h3>
+
+</body>
+</html>
